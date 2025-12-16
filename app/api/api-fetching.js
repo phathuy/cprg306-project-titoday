@@ -25,15 +25,6 @@ export async function searchMealsByName(name) {
   return data.meals || [];
 }
 
-// Fetch meals by ingredient filter
-export async function filterByIngredient(ingredient) {
-  const result = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
-  );
-  const data = await result.json();
-  return data.meals || [];
-}
-
 // Fetch meals by category filter
 export async function filterByCategory(category) {
   const result = await fetch(
@@ -50,13 +41,4 @@ export async function getCategories() {
   );
   const data = await result.json();
   return data.categories;
-}
-
-// Fetch meal by an ingredient
-export async function getIngredients() {
-  const result = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
-  );
-  const data = await result.json();
-  return data.meals.slice(0, 30);
 }
